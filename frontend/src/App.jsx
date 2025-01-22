@@ -1,17 +1,18 @@
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
-import { Button, HStack, Flex, Center } from '@chakra-ui/react';
+import { Button, Stack, Flex, Fieldset, Input } from '@chakra-ui/react';
+import { Field } from './components/ui/field';
+import HomePage from './pages/HomePage';
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <Flex height="100%" justifyContent="center" alignItems="center">
-      <Flex>
-        <p>Home Page</p>
-      </Flex>
+    <Flex
+      height="100vh"
+      justifyContent="center"
+      alignItems="center"
+      backgroundColor="red.400">
+      <HomePage />
     </Flex>
   );
 }
