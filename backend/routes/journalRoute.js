@@ -6,11 +6,11 @@ const router = express.Router();
 router.post('/', async (req, res) => {
   const entry = req.body;
 
-  if (!entry.name || !entry.consignee) {
-    return res
-      .status(400)
-      .json({ success: false, message: 'Fill the name and consignee' });
-  }
+  // if (!entry.name || !entry.consignee) {
+  //   return res
+  //     .status(400)
+  //     .json({ success: false, message: 'Fill the name and consignee' });
+  // }
 
   const newLoan = new LoanEntry(entry);
 
