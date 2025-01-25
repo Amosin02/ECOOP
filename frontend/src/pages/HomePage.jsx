@@ -1,4 +1,5 @@
 import { Button, Stack, Fieldset, Input } from '@chakra-ui/react';
+import { ToastContainer, toast } from 'react-toastify';
 import { Field } from '../components/ui/field';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
@@ -11,9 +12,11 @@ export default function HomePage() {
   } = useForm();
 
   const onSubmit = handleSubmit((data) => saveData(data));
+  const notify = () => toast('Loan Request Success!');
 
   async function saveData(dataToBeSaved) {
     await axios.post('http://localhost:5001/api/entries', dataToBeSaved);
+    notify();
   }
 
   return (
@@ -90,8 +93,19 @@ export default function HomePage() {
 
         <Button type="submit" alignSelf={'flex-start'}>
           Submit
-          {/* add a function where it would say a notification that it was successful */}
         </Button>
+        <ToastContainer
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar
+          newestOnTop={false}
+          closeOnClick={false}
+          rtl={false}
+          pauseOnFocusLoss
+          draggable={false}
+          pauseOnHover
+          theme="light"
+        />
       </Fieldset.Root>
     </form>
   );

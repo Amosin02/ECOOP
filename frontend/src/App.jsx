@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Flex } from '@chakra-ui/react';
 import HomePage from './pages/HomePage';
 
