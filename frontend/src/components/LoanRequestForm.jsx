@@ -1,10 +1,10 @@
-import { Button, Stack, Fieldset, Input } from '@chakra-ui/react';
+import { Button, Stack, Fieldset, Input, Flex } from '@chakra-ui/react';
 import { ToastContainer, toast } from 'react-toastify';
-import { Field } from '../components/ui/field';
+import { Field } from './ui/field';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 
-export default function HomePage() {
+export default function LoanRequestForm() {
   const {
     register,
     handleSubmit,
@@ -31,8 +31,9 @@ export default function HomePage() {
           </Fieldset.HelperText>
         </Stack>
 
-        <Fieldset.Content>
+        <Fieldset.Content alignItems={'center'}>
           <Field
+            width={{ base: '64', sm: 'full' }}
             label="Full Name"
             invalid={!!errors.fullName}
             errorText={errors.fullName?.message}>
@@ -44,6 +45,7 @@ export default function HomePage() {
           </Field>
 
           <Field
+            width={{ base: '64', sm: 'full' }}
             label="Amount"
             invalid={!!errors.amount}
             errorText={errors.amount?.message}>
@@ -55,6 +57,7 @@ export default function HomePage() {
           </Field>
 
           <Field
+            width={{ base: '64', sm: 'full' }}
             label="Loan Term"
             invalid={!!errors.loanTerm}
             errorText={errors.loanTerm?.message}>
@@ -66,6 +69,7 @@ export default function HomePage() {
           </Field>
 
           <Field
+            width={{ base: '64', sm: 'full' }}
             label="C/O"
             invalid={!!errors.co}
             errorText={errors.co?.message}>
@@ -77,6 +81,7 @@ export default function HomePage() {
           </Field>
 
           <Field
+            width={{ base: '64', sm: 'full' }}
             label="Description"
             invalid={!!errors.description}
             errorText={errors.description?.message}>
@@ -91,7 +96,11 @@ export default function HomePage() {
           </Field>
         </Fieldset.Content>
 
-        <Button type="submit" alignSelf={'flex-start'}>
+        <Button
+          type="submit"
+          alignSelf={{ base: 'center', sm: 'flex-end' }}
+          width={{ base: '40', sm: '48' }}
+          height={'12'}>
           Submit
         </Button>
         <ToastContainer

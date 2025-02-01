@@ -7,6 +7,7 @@ import {
 } from '@/components/ui/password-input';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+import { Link, Navigate } from 'react-router';
 
 export default function SignInPage() {
   const {
@@ -23,14 +24,14 @@ export default function SignInPage() {
   }
 
   return (
-    <form>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <Fieldset.Root minW={'sm'}>
         <Fieldset.Content>
           <Field
-            invalid={!!errors.fullName}
-            errorText={errors.fullName?.message}>
+            invalid={!!errors.userName}
+            errorText={errors.userName?.message}>
             <Input
-              {...register('fullName', { required: 'Full name is required' })}
+              {...register('userName', { required: 'Username is required' })}
               variant={'subtle'}
               placeholder="Username"
             />
@@ -39,13 +40,15 @@ export default function SignInPage() {
           <PasswordInput placeholder="Password" size="md" variant={'subtle'} />
         </Fieldset.Content>
 
-        <Button
-          type="submit"
-          alignSelf={'flex-start'}
-          width={'md'}
-          height={'12'}>
-          Submit
-        </Button>
+        <Link to={'/home-page'}>
+          <Button
+            type="submit"
+            alignSelf={'flex-start'}
+            width={'md'}
+            height={'12'}>
+            Submit
+          </Button>
+        </Link>
       </Fieldset.Root>
     </form>
   );

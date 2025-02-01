@@ -1,16 +1,18 @@
 import { Flex } from '@chakra-ui/react';
 import { Routes, Route } from 'react-router';
-import HomePage from './pages/HomePage';
+import LoanRequestForm from './components/LoanRequestForm';
 import SignInPage from './pages/SignInPage';
+import Navbar from './components/Navbar';
+import FormNumber from './components/FormNumber';
 
 function App() {
   return (
-    <Flex height="100vh" justifyContent="center" alignItems="center">
+    <Flex direction={'column'} alignItems={'center'} justifyContent={'center'}>
+      <Navbar />
       <Routes>
-        <Route exact path="/" element={<SignInPage />} />
-        <Route exact path="loan-request" element={<HomePage />} />
+        <Route exact path="/loan-request" element={<LoanRequestForm />} />
+        <Route exact path="/form-number" element={<FormNumber />} />
       </Routes>
-      {/* <HomePage /> */}
     </Flex>
   );
 }
