@@ -21,7 +21,12 @@ export default function LoanRequestForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Fieldset.Root minW={'md'}>
+      <Fieldset.Root
+        minWidth={{ sm: 'md' }}
+        my={5}
+        bgColor={'gray.200'}
+        rounded={'3xl'}
+        p={8}>
         <Stack>
           <Fieldset.Legend alignSelf={'center'}>
             Loan Request Form
