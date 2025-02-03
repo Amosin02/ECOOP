@@ -6,7 +6,6 @@ export default function Navbar() {
     <Container maxW={'1140px'} px={10} py={4}>
       <Flex
         justifyContent={'space-between'}
-        // justifySelf={{ base: 'center', sm: 'space-between' }}
         flexDir={{ base: 'column', sm: 'row' }}>
         <Text
           textStyle={'xl'}

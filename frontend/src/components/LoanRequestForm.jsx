@@ -23,7 +23,7 @@ export default function LoanRequestForm() {
     <form onSubmit={handleSubmit(onSubmit)}>
       <Fieldset.Root
         minWidth={{ sm: 'md' }}
-        my={5}
+        my={{ base: '1', sm: '5' }}
         bgColor={'gray.200'}
         rounded={'3xl'}
         p={8}>
