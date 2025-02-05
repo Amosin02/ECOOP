@@ -1,4 +1,4 @@
-import { Container, Flex, HStack, Text, Tooltip } from '@chakra-ui/react';
+import { Container, Flex, HStack, Text } from '@chakra-ui/react';
 import { Link } from 'react-router';
 
 export default function Navbar() {
