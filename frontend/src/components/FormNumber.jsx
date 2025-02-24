@@ -1,7 +1,6 @@
-import { Container, DataList, Flex, SimpleGrid } from '@chakra-ui/react';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import Forms from './Forms';
+import FormPage from './FormPage';
 
 export default function FormNumber() {
   const [loanData, setLoanData] = useState([]);
@@ -15,15 +14,5 @@ export default function FormNumber() {
     fetchData();
   }, []);
 
-  return (
-    <DataList.Root>
-      <SimpleGrid columns={2} gap="40px">
-        {loanData.map((el) => (
-          <DataList.Item key={el._id}>
-            <Forms information={el} />
-          </DataList.Item>
-        ))}
-      </SimpleGrid>
-    </DataList.Root>
-  );
+  return <FormPage loanData={loanData} />;
 }

@@ -15,6 +15,7 @@ export default function LoanRequestForm() {
   const notify = () => toast('Loan Request Success!');
 
   async function saveData(dataToBeSaved) {
+    dataToBeSaved['action'] = 'pending';
     await axios.post('http://localhost:5001/api/entries', dataToBeSaved);
     notify();
   }
@@ -105,21 +106,13 @@ export default function LoanRequestForm() {
           type="submit"
           alignSelf={{ base: 'center', sm: 'flex-end' }}
           width={{ base: '40', sm: '48' }}
+          _hover={{
+            bgColor: 'blackAlpha.700',
+          }}
           height={'12'}>
           Submit
         </Button>
-        <ToastContainer
-          position="bottom-right"
-          autoClose={5000}
-          hideProgressBar
-          newestOnTop={false}
-          closeOnClick={false}
-          rtl={false}
-          pauseOnFocusLoss
-          draggable={false}
-          pauseOnHover
-          theme="light"
-        />
+        <ToastContainer autoClose={3000} hideProgressBar theme="light" />
       </Fieldset.Root>
     </form>
   );

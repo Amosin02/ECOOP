@@ -7,6 +7,7 @@ const loanEntrySchema = mongoose.Schema(
     loanTerm: String,
     co: String,
     description: String,
+    action: String,
   },
   {
     timestamps: true,
