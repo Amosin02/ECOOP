@@ -1,4 +1,5 @@
 import { Button, Table } from '@chakra-ui/react';
+import axios from 'axios';
 import { IoCheckmarkSharp } from 'react-icons/io5';
 import { RxCross2 } from 'react-icons/rx';
 
@@ -10,8 +11,22 @@ export default function FormPage(props) {
       .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
   }
 
-  function handleAction() {
-    // create a function that will change the pending to approve or declined when the appropriate button is clicked
+  function requestFormat(text) {
+    const capitalize = text.charAt(0).toUpperCase() + text.slice(1);
+    return capitalize;
+  }
+
+  async function handleAction(loanId, value) {
+    const changedValue = value ? 'approved' : 'rejected';
+    const id = loanId;
+
+    const changeAction = { action: changedValue };
+
+    try {
+      await axios.put(`http://localhost:5001/api/entries/${id}`, changeAction);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
@@ -32,18 +47,28 @@ export default function FormPage(props) {
             <Table.Cell>{value.fullName}</Table.Cell>
             <Table.Cell>{currencyFormat(value.amount)}</Table.Cell>
             <Table.Cell>{value.co}</Table.Cell>
-            <Table.Cell>{value.action}</Table.Cell>
+            <Table.Cell>{requestFormat(value.action)}</Table.Cell>
             <Table.Cell>
-              <Button
-                bgColor={'green.600'}
-                size={'xs'}
-                width={5}
-                rounded={'full'}>
-                <IoCheckmarkSharp />
-              </Button>
-              <Button bgColor={'red'} size={'xs'} width={5} rounded={'full'}>
-                <RxCross2 />
-              </Button>
+              {value.action === 'pending' && (
+                <>
+                  <Button
+                    bg={'green.600'}
+                    size={'xs'}
+                    width={5}
+                    rounded={'full'}
+                    onClick={() => handleAction(value._id, 1)}>
+                    <IoCheckmarkSharp />
+                  </Button>
+                  <Button
+                    bgColor={'red'}
+                    size={'xs'}
+                    width={5}
+                    rounded={'full'}
+                    onClick={() => handleAction(value._id, 0)}>
+                    <RxCross2 />
+                  </Button>
+                </>
+              )}
             </Table.Cell>
           </Table.Row>
         ))}

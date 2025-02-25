@@ -65,4 +65,22 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+router.put('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { action } = req.body;
+
+    const loanData = await LoanEntry.findByIdAndUpdate(id, {
+      $set: { action: action },
+    });
+
+    res.status(200).json({ success: true, entry: loanData });
+  } catch (error) {
+    console.error('Error in Getting Journal Entry:', error.message);
+    res
+      .status(500)
+      .json({ success: false, message: 'Getting Loan Entry Unsuccessful' });
+  }
+});
+
 export default router;
