@@ -1,6 +1,4 @@
 import { Button, Table } from '@chakra-ui/react';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
 import { IoCheckmarkSharp } from 'react-icons/io5';
 import { RxCross2 } from 'react-icons/rx';
 import { FaRegTrashAlt } from 'react-icons/fa';

@@ -4,10 +4,11 @@ import FormPage from './FormPage';
 
 export default function FormNumber() {
   const [loanData, setLoanData] = useState([]);
+
   const fetchData = async () => {
     const response = await axios.get('http://localhost:5001/api/entries');
     const result = await response.data;
-    setLoanData(result.entries);
+    setLoanData(result.entries.toReversed());
   };
 
   useEffect(() => {
