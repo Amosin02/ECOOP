@@ -1,7 +1,8 @@
-import { Button, Table } from '@chakra-ui/react';
+import { Button, ClipboardRoot, HStack, Table } from '@chakra-ui/react';
 import { IoCheckmarkSharp } from 'react-icons/io5';
 import { RxCross2 } from 'react-icons/rx';
 import { FaRegTrashAlt } from 'react-icons/fa';
+import { ClipboardIconButton } from './ui/clipboard';
 
 export default function FormPage(props) {
   const loans = props.loanData;
@@ -80,6 +81,11 @@ export default function FormPage(props) {
                     <FaRegTrashAlt />
                   </Button>
                 </>
+              )}
+              {value.action === 'approved' && (
+                <ClipboardRoot value={value._id}>
+                  <ClipboardIconButton />
+                </ClipboardRoot>
               )}
             </Table.Cell>
           </Table.Row>
