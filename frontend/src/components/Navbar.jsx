@@ -3,36 +3,36 @@ import { Link } from 'react-router';
 
 export default function Navbar() {
   return (
-    <Container maxW={'1140px'} px={10} py={4}>
-      <Flex
-        justifyContent={'space-between'}
-        flexDir={{ base: 'column', sm: 'row' }}>
+    <Container
+      maxW={'1140px'}
+      px={5}
+      py={4}
+      bgColor={'gray.200'}
+      rounded={'3xl'}>
+      <Flex justifyContent={'space-between'} flexDir={'row'}>
         <Text
           textStyle={'xl'}
           fontWeight={'bold'}
-          alignSelf={{ base: 'center' }}>
+          alignSelf={{ base: 'center' }}
+          fontFamily={'monospace'}>
           ECOOP
         </Text>
 
-        <HStack textStyle={'sm'} gap={5} justify={{ base: 'center' }}>
+        <HStack textStyle={'sm'} justify={{ base: 'center' }}>
           <Link to={'/loan-request'}>
             <Text
-              rounded={'4xl'}
-              _hover={{ backgroundColor: 'gray.300' }}
-              p={2}
-              backgroundColor={'gray.200'}
-              px={{ base: '2', sm: '8' }}>
-              Loan Request
+              _hover={{ color: 'blackAlpha.600' }}
+              fontWeight={'bold'}
+              px={{ base: '2', sm: '4' }}>
+              Request
             </Text>
           </Link>
           <Link to={'/form-number'}>
             <Text
-              _hover={{ backgroundColor: 'gray.300' }}
+              _hover={{ color: 'blackAlpha.600' }}
               variant
-              rounded={'4xl'}
-              p={2}
-              backgroundColor={'gray.200'}
-              px={{ base: '2', sm: '8' }}>
+              fontWeight={'bold'}
+              px={{ base: '2', sm: '4' }}>
               Form Number
             </Text>
           </Link>

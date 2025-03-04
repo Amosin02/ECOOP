@@ -6,7 +6,11 @@ import FormNumber from './components/FormNumber';
 
 function App() {
   return (
-    <Flex direction={'column'} alignItems={'center'} justifyContent={'center'}>
+    <Flex
+      direction={'column'}
+      alignItems={'center'}
+      justifyContent={'center'}
+      p={2}>
       <Navbar />
       <Routes>
         <Route exact path="/loan-request" element={<LoanRequestForm />} />
